@@ -1,0 +1,176 @@
++-------------------+
+users
++-------------------+
+id (PK) 
+name 
+email
+email_verified_at
+password
+remember_token
+timestamps 
++-------------------+
+
++-------------------+
+roles
++-------------------+
+id (PK) 
+name 
+timestamps 
++-------------------+
+
++-------------------+
+role_user
++-------------------+
+id (PK) 
+user_id (FK)
+role_id (FK)
+timestamps 
++-------------------+
+
++-------------------+
+ profiles
++-------------------+
+id (PK) 
+user_id (FK)
+profileable_type 
+profileable_id
+phone
+address 
+date_of_birth 
+gender
+timestamps 
++-------------------+
+
++-------------------+
+admins
++-------------------+
+id (PK) 
++-------------------+
+
++-------------------+
+ teachers
++-------------------+
+id (PK) 
++-------------------+
+
++-------------------+
+ students
++-------------------+
+id (PK) 
+user_id (FK)
+timestamps 
++-------------------+
+
++-------------------+
+ courses
++-------------------+
+id (PK) 
+name 
+description
+timestamps 
++-------------------+
+
++-------------------+
+ batches
++-------------------+
+id (PK) 
+course_id (FK)
+name 
+timestamps 
++-------------------+
+
++-------------------+
+ batch_teacher
++-------------------+
+id (PK) 
+batch_id (FK) 
+teacher_id (FK)
+timestamps 
++-------------------+
+
++-------------------+
+enrollments 
++-------------------+
+id (PK) 
+student_id (FK)
+batch_id (FK) 
+timestamps 
++-------------------+
+
++-------------------+
+attendances 
++-------------------+
+id (PK) 
+batch_id (FK) 
+date 
+timestamps 
++-------------------+
+
++-------------------+
+attendance_records+-------------------+
+id (PK) 
+attendance_id (FK)student_id (FK)
+status
+timestamps 
++-------------------+
+
++-------------------+
+fees 
++-------------------+
+id (PK) 
+batch_id (FK) 
+amount
+timestamps 
++-------------------+
+
++-------------------+
+ payments
++-------------------+
+id (PK) 
+student_id (FK)
+fee_id (FK)
+amount
+payment_date
+timestamps 
++-------------------+
+
++-------------------+
+performances
++-------------------+
+id (PK) 
+student_id (FK)
+batch_id (FK) 
+performance_data 
+timestamps 
++-------------------+
+
++-------------------+
+feedbacks
++-------------------+
+id (PK) 
+performance_id (FK)
+feedback
+timestamps 
++-------------------+
+
++-------------------+
+messages
++-------------------+
+id (PK) 
+sender_id (FK)
+receiver_id (FK) 
+message 
+read 
+timestamps 
++-------------------+
+
++-------------------+
+ notifications
++-------------------+
+id (PK) 
+user_id (FK)
+title
+body 
+read 
+timestamps 
++-------------------+
