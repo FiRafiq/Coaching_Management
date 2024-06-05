@@ -4,26 +4,10 @@ users
 id (PK) 
 name 
 email
+role (author, teacher, student)
 email_verified_at
 password
 remember_token
-timestamps 
-+-------------------+
-
-+-------------------+
-roles
-+-------------------+
-id (PK) 
-name 
-timestamps 
-+-------------------+
-
-+-------------------+
-role_user
-+-------------------+
-id (PK) 
-user_id (FK)
-role_id (FK)
 timestamps 
 +-------------------+
 
@@ -42,15 +26,17 @@ timestamps
 +-------------------+
 
 +-------------------+
-admins
+author
 +-------------------+
-id (PK) 
+id (PK)
+user_id (FK)
 +-------------------+
 
 +-------------------+
  teachers
 +-------------------+
-id (PK) 
+id (PK)
+user_id (FK)
 +-------------------+
 
 +-------------------+
@@ -107,7 +93,8 @@ timestamps
 +-------------------+
 
 +-------------------+
-attendance_records+-------------------+
+attendance_records
++-------------------+
 id (PK) 
 attendance_id (FK)student_id (FK)
 status

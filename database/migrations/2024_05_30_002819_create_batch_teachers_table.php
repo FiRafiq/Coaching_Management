@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('batch_teachers', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('batch_id')->constrained();
+            $table->foreignId('teacher_id')->constrained();
             $table->timestamps();
         });
     }

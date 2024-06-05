@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('enrollments', function (Blueprint $table) {
             $table->id();
+            // add student_id (FK) batch_id (FK)
+            $table->foreignId('student_id')->constrained();
+            $table->foreignId('batch_id')->constrained();
+            $table->boolean('is_active')->default(1);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

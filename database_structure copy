@@ -1,0 +1,21 @@
+users:
+id (PK)
+name
+email
+role (author, teacher, student)
+email_verified_at
+password
+remember_token
+timestamps
+
+
+profile:
+id (PK) 
+user_id (FK)
+profileable_type 
+profileable_id
+phone
+address 
+date_of_birth 
+gender
+timestamps 

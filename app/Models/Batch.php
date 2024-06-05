@@ -9,3 +9,4 @@ class Batch extends Model
 {
     use HasFactory;
 }
+

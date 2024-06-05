@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class UserListController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,8 @@ class UserController extends Controller
     public function index()
     {
         //
-        $users = User::all();
-        return view('admin.dashboard', compact('users'));
+        $users = User::paginate(8);
+        return view('admin.page.users', ['users' => $users]);
     }
 
     /**
@@ -23,6 +23,7 @@ class UserController extends Controller
     public function create()
     {
         //
+        return view('auth.register');
     }
 
     /**
@@ -36,15 +37,16 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(User $user)
     {
         //
+        return view('admin.page.user', ['user' => $user]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $user)
     {
         //
     }
@@ -52,7 +54,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -60,7 +62,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(User $user)
     {
         //
     }

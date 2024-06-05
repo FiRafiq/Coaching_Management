@@ -1,0 +1,26 @@
+# create middleware user role
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SharedController;
+
+// Middleware for a single role
+Route::group(['middleware' => ['auth', 'role:author']], function () {
+    Route::get('/author/dashboard', [AuthorController::class, 'index'])->name('author.dashboard');
+});
+
+// Middleware for a single role
+Route::group(['middleware' => ['auth', 'role:teacher']], function () {
+    Route::get('/teacher/dashboard', [TeacherController::class, 'index'])->name('teacher.dashboard');
+});
+
+// Middleware for a single role
+Route::group(['middleware' => ['auth', 'role:student']], function () {
+    Route::get('/student/dashboard', [StudentController::class, 'index'])->name('student.dashboard');
+});
+
+// Middleware for multiple roles
+Route::group(['middleware' => ['auth', 'role:author,teacher']], function () {
+    Route::get('/shared/dashboard', [SharedController::class, 'index'])->name('shared.dashboard');
+});
